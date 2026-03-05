@@ -2,7 +2,6 @@ import streamlit as st
 from resume_parser import parse_pdf, parse_docx
 from ai_engine import ats_check, improve_resume, build_resume, get_role_tips
 from ui_components import header, tips
-from ats_scoring import calculate_ats_score
 
 st.set_page_config(page_title="ResumeAI", page_icon="📄", layout="wide")
 
@@ -52,21 +51,11 @@ with tab1:
         elif not job_desc.strip():
             st.warning("Please paste a job description to compare against.")
         else:
-            col1, col2 = st.columns([1, 2])
+            with st.spinner("Analyzing with Groq AI..."):
+    result = ats_check(resume_text, job_desc)
+if result:
+    st.markdown(result)
 
-            with col1:
-                with st.spinner("Calculating ATS score..."):
-                    score, missing = calculate_ats_score(resume_text, job_desc)
-                st.metric("ATS Score", f"{score}%")
-                if missing:
-                    st.markdown("**Missing Keywords:**")
-                    st.write(", ".join(missing[:30]))  # cap at 30
-
-            with col2:
-                with st.spinner("Getting AI analysis from Gemini..."):
-                    result = ats_check(resume_text, job_desc)
-                if result:
-                    st.markdown(result)
 
 
 # ─────────────────────── RESUME BUILDER ─────────────────────── #
