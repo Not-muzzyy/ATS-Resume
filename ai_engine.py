@@ -1,0 +1,51 @@
+from google import genai
+import streamlit as st
+from prompts import ATS_PROMPT, IMPROVE_PROMPT, BUILDER_PROMPT
+
+client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
+
+
+def ats_check(resume, job):
+
+    prompt = ATS_PROMPT.format(
+        resume=resume,
+        job_description=job
+    )
+
+    response = client.models.generate_content(
+        model="gemini-1.5-flash",
+        contents=prompt
+    )
+
+    return response.text
+
+
+def improve_resume(text):
+
+    prompt = IMPROVE_PROMPT.format(resume=text)
+
+    response = client.models.generate_content(
+        model="gemini-1.5-flash",
+        contents=prompt
+    )
+
+    return response.text
+
+
+def build_resume(name, education, exp, skills, projects, certs):
+
+    prompt = BUILDER_PROMPT.format(
+        name=name,
+        education=education,
+        experience=exp,
+        skills=skills,
+        projects=projects,
+        certs=certs
+    )
+
+    response = client.models.generate_content(
+        model="gemini-1.5-flash",
+        contents=prompt
+    )
+
+    return response.text
