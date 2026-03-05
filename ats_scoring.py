@@ -1,23 +1,35 @@
 import re
 
 
-def extract_keywords(text):
-    words = re.findall(r'\b[A-Za-z]+\b', text.lower())
-    return set(words)
+STOP_WORDS = {
+    "the", "and", "for", "with", "that", "this", "are", "you", "have",
+    "will", "from", "your", "our", "not", "but", "they", "been", "more",
+    "was", "has", "had", "its", "can", "all", "any", "may", "use", "used",
+    "using", "each", "also", "than", "into", "about", "such", "their",
+    "well", "both", "very", "over", "who", "how", "what", "when", "where"
+}
 
 
-def calculate_ats_score(resume, job_description):
-
-    resume_words = extract_keywords(resume)
-    job_words = extract_keywords(job_description)
-
-    matched = resume_words.intersection(job_words)
-
-    if len(job_words) == 0:
+def calculate_ats_score(resume_text: str, job_description: str):
+    """
+    Returns (score: int, missing_keywords: list[str])
+    Score is 0-100 based on keyword overlap between resume and job description.
+    """
+    if not job_description.strip():
         return 0, []
 
-    score = int((len(matched) / len(job_words)) * 100)
+    resume_lower = resume_text.lower()
 
-    missing = list(job_words - resume_words)[:20]
+    # Extract meaningful words (4+ chars) from job description
+    job_words = set(re.findall(r'\b[a-z]{4,}\b', job_description.lower()))
+    keywords = job_words - STOP_WORDS
+
+    if not keywords:
+        return 0, []
+
+    matched = [kw for kw in keywords if kw in resume_lower]
+    missing = sorted([kw for kw in keywords if kw not in resume_lower])
+
+    score = int((len(matched) / len(keywords)) * 100)
 
     return score, missing
