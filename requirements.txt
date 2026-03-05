@@ -1,5 +1,5 @@
 streamlit
 pdfplumber
 python-docx
-google-genai
+groq
 pandas
