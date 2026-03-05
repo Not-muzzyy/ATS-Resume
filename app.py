@@ -31,10 +31,10 @@ for key in ["ats_result", "ats_resume_text", "ats_score",
 header()
 
 tab1, tab2, tab3, tab4 = st.tabs([
-    "📊 Check Resume",
-    "✍️ Build Resume",
-    "🔧 Improve Resume",
-    "💡 Tips & Advice"
+    "Check Resume",
+    "Build Resume",
+    "Improve Resume",
+    "Tips & Advice"
 ])
 
 
@@ -44,7 +44,7 @@ with tab1:
 
     ats_explainer()
 
-    st.markdown('<div class="section-header">📤 Your Resume</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Your Resume</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-sub">Upload your resume or paste the text below</div>', unsafe_allow_html=True)
 
     option = st.radio(
@@ -102,7 +102,7 @@ with tab1:
             label_visibility="collapsed"
         )
 
-    st.markdown('<div class="section-header">💼 Job Description</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0;"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Job Description</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-sub">Copy the job description from LinkedIn, Indeed, or Naukri and paste it here</div>', unsafe_allow_html=True)
 
     job_desc = st.text_area(
@@ -152,7 +152,7 @@ with tab1:
 
         # Career fit
         st.markdown("---")
-        st.markdown('<div class="section-header">🎯 Where Should You Apply?</div>', unsafe_allow_html=True)
+        st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Where Should You Apply?</div>', unsafe_allow_html=True)
         st.markdown('<div class="section-sub">Based on your resume, AI will suggest which job roles match you best right now</div>', unsafe_allow_html=True)
 
         if st.button("🔎 Find My Best Job Matches"):
@@ -179,14 +179,14 @@ with tab2:
 </div>
 """, unsafe_allow_html=True)
 
-    st.markdown('<div class="section-header">👤 Personal Details</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Personal Details</div>', unsafe_allow_html=True)
 
     name = st.text_input(
         "Full Name",
         placeholder="e.g. Muzzammil Khan"
     )
 
-    st.markdown('<div class="section-header">🎓 Education</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> Education</div>', unsafe_allow_html=True)
 
     education = st.text_area(
         "Education",
@@ -195,7 +195,7 @@ with tab2:
         label_visibility="collapsed"
     )
 
-    st.markdown('<div class="section-header">🛠️ Skills</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0;"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg> Skills</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-sub">List your technical and soft skills — the more the better for ATS</div>', unsafe_allow_html=True)
 
     skills = st.text_input(
@@ -216,7 +216,7 @@ with tab2:
 </div>
 """, unsafe_allow_html=True)
 
-    st.markdown('<div class="section-header">💼 Work Experience</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0;"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Work Experience</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-sub">No work experience? Leave this blank or describe internships, freelance work, or college activities</div>', unsafe_allow_html=True)
 
     experience = st.text_area(
@@ -239,7 +239,7 @@ with tab2:
 """, unsafe_allow_html=True)
         st.code(st.session_state.exp_bullets, language=None)
 
-    st.markdown('<div class="section-header">🚀 Projects</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg> Projects</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-sub">Projects are very important for freshers — list everything you have built</div>', unsafe_allow_html=True)
 
     projects = st.text_area(
@@ -249,7 +249,7 @@ with tab2:
         label_visibility="collapsed"
     )
 
-    st.markdown('<div class="section-header">🏆 Certifications</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0;"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg> Certifications</div>', unsafe_allow_html=True)
 
     certs = st.text_input(
         "Certifications",
@@ -306,7 +306,7 @@ with tab3:
 </div>
 """, unsafe_allow_html=True)
 
-    st.markdown('<div class="section-header">📤 Upload Your Existing Resume</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Upload Your Existing Resume</div>', unsafe_allow_html=True)
 
     improve_option = st.radio(
         "Choose input method",
@@ -405,11 +405,11 @@ with tab3:
 
 with tab4:
 
-    st.markdown('<div class="section-header">📋 Resume Tips for Everyone</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0;"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg> Resume Tips for Everyone</div>', unsafe_allow_html=True)
     tips()
 
     st.markdown("---")
-    st.markdown('<div class="section-header">🎯 Get Tips for Your Specific Job</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#63b3ed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;flex-shrink:0;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Get Tips for Your Specific Job</div>', unsafe_allow_html=True)
     st.markdown('<div class="section-sub">Enter any job title and AI gives you 8 specific tips tailored for that role</div>', unsafe_allow_html=True)
 
     role = st.text_input(
