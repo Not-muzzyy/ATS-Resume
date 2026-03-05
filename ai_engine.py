@@ -1,11 +1,13 @@
 from google import genai
 import streamlit as st
+import os
 from prompts import ATS_PROMPT, IMPROVE_PROMPT, BUILDER_PROMPT
 
-api_key = st.secrets.get("GEMINI_API_KEY")
+# Try Streamlit secrets first, then environment variable
+api_key = st.secrets.get("GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY")
 
 if not api_key:
-    st.error("Gemini API key missing in Streamlit secrets.")
+    st.error("Gemini API key missing. Add it in Streamlit Secrets.")
     st.stop()
 
 client = genai.Client(api_key=api_key)
