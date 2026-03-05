@@ -55,20 +55,27 @@ with tab1:
 
         if resume_text:
 
-            with st.spinner("Analyzing..."):
+            # ---- Local ATS scoring ----
+            with st.spinner("Calculating ATS score..."):
+                score, missing = calculate_ats_score(
+                    resume_text,
+                    job_desc
+                )
 
-                score, missing = calculate_ats_score(resume_text, job_desc)
+            st.subheader(f"ATS Score: {score}%")
 
-st.subheader(f"ATS Score: {score}%")
+            if missing:
+                st.write("### Missing Keywords")
+                st.write(", ".join(missing))
 
-if missing:
-    st.write("Missing Keywords:")
-    st.write(", ".join(missing))
+            # ---- AI suggestions ----
+            with st.spinner("Generating AI suggestions..."):
+                result = ats_check(
+                    resume_text,
+                    job_desc
+                )
 
-with st.spinner("Generating AI suggestions..."):
-    result = ats_check(resume_text, job_desc)
-
-st.markdown(result)
+            st.markdown(result)
 
         else:
             st.warning("Upload or paste a resume first.")
@@ -105,7 +112,7 @@ with tab2:
                 certs
             )
 
-            st.markdown(resume)
+        st.markdown(resume)
 
 
 # ---------------- RESUME IMPROVER ---------------- #
@@ -123,7 +130,7 @@ with tab3:
 
             result = improve_resume(text)
 
-            st.markdown(result)
+        st.markdown(result)
 
 
 # ---------------- TIPS ---------------- #
